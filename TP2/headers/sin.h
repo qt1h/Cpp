@@ -1,13 +1,17 @@
 #ifndef SIN_H
 #define SIN_H
+
 #include "tsgenerator.h"
-class SinWaveGenerator : TimeSeriesGenerator
+#include <vector>
+
+class SinWaveGenerator : public TimeSeriesGenerator
 {
 public:
-    // Constructeur
-    SinWaveGenerator(int seed, double amplitude, double frequency, double phase);
+    // Constructeurs
     SinWaveGenerator();
-    // Implémentation de la méthode generateTimeSeries
+    SinWaveGenerator(int seed, double amplitude, double frequency, double phase);
+
+    // Implémentation de la méthode virtuelle pure
     std::vector<double> generateTimeSeries(int size) override;
 
 private:
@@ -15,4 +19,5 @@ private:
     double frequency; // Fréquence (ω)
     double phase;     // Phase initiale (ϕ)
 };
+
 #endif
